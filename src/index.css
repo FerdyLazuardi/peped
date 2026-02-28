@@ -567,14 +567,27 @@ textarea::placeholder {
   }
 
   .chat-container {
-    padding: 80px 5% 40px 5%;
+    padding: 60px 20px 20px 20px !important;
   }
 
-  .input-container {
-    padding: 10px 5% 30px 5%;
+  .message-wrapper {
+    gap: 0 !important;
+    margin-bottom: 15px !important;
   }
 
   .message-bubble {
-    max-width: 95%;
+    max-width: 100% !important;
+    font-size: 15px !important;
+  }
+
+  /* Force hide avatars on mobile with high specificity */
+  .chat-container .message-wrapper .avatar,
+  .chat-container .message-wrapper.ai .avatar,
+  .chat-container .message-wrapper.user .avatar {
+    display: none !important;
+  }
+
+  .input-container {
+    padding: 10px 20px 20px 20px !important;
   }
 }
