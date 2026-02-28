@@ -4,7 +4,7 @@ import Message from './Message';
 
 export default function ChatArea({ isOpen, toggleSidebar }) {
     const [messages, setMessages] = useState([
-        { sender: 'ai', text: 'Hi A-Team! Aku **Peped**. Ada yang bisa aku bantu hari ini terkait materi Amarthapedia? 😊' }
+        { sender: 'ai', text: 'Haii A-Team! **Peped** is here to save your day! 💅✨\n\nLagi pusing sama modul Amarthapedia atau ada materi yang bikin *stuck*? Santai, spill aja pertanyaannya di bawah, kita beresin bareng-bareng!\n\nWhat’s on your mind today?' }
     ]);
     const [input, setInput] = useState('');
     const [isTyping, setIsTyping] = useState(false);
