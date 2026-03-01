@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, PanelLeft, Hand, UserCircle, BookOpen, ShieldAlert } from 'lucide-react';
 import Message from './Message';
 import mascotUrl from '../../asset/maskot.png';
+import mascotIconChatUrl from '../../asset/maskot-icon-chat.png';
 
 const CHIPS = [
     { icon: Hand, label: "Hi!" },
-    { icon: UserCircle, label: "Kamu Siapa" },
-    { icon: BookOpen, label: "Training Client Protection" },
-    { icon: ShieldAlert, label: "Anti-Harrashment" }
+    { icon: UserCircle, label: "Kamu Siapa?" },
+    { icon: BookOpen, label: "Client Protection" },
+    { icon: ShieldAlert, label: "Anti-harassment" }
 ];
 
 export default function ChatArea({ isOpen, toggleSidebar }) {
@@ -145,7 +146,7 @@ export default function ChatArea({ isOpen, toggleSidebar }) {
                         {isTyping && (
                             <div className="message-wrapper ai">
                                 <div className="avatar ai">
-                                    <img src={mascotUrl} style={{ width: '20px', height: '20px' }} alt="bot" />
+                                    <img src={mascotIconChatUrl} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="bot" />
                                 </div>
                                 <div className="message-bubble" style={{ padding: '0 18px', background: 'transparent', boxShadow: 'none', border: 'none' }}>
                                     <div className="typing-indicator">

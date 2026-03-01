@@ -1,7 +1,7 @@
 import React from 'react';
 import { marked } from 'marked';
 import { User } from 'lucide-react';
-import mascotUrl from '../../asset/maskot.png';
+import mascotIconChatUrl from '../../asset/maskot-icon-chat.png';
 
 marked.use({
     renderer: {
@@ -38,7 +38,7 @@ export default function Message({ text, sender }) {
         <div className={`message-wrapper ${sender}`}>
             {!isUser && (
                 <div className="avatar ai">
-                    <img src={mascotUrl} style={{ width: '20px', height: '20px', objectFit: 'contain' }} alt="bot" />
+                    <img src={mascotIconChatUrl} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="bot" />
                 </div>
             )}
 
