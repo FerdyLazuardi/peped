@@ -37,22 +37,23 @@
 html {
   height: 100%;
   margin: 0;
-  background: var(--bg-gradient) fixed no-repeat;
-  background-size: cover;
-  overflow: hidden;
+  background-color: #D8E5F8;
+  /* Neutral safety color from middle of gradient */
 }
 
 body {
-  font-family: var(--font-family);
-  color: var(--text-primary);
-  height: 100dvh;
+  min-height: 100dvh;
   margin: 0;
   overflow: hidden;
+  font-family: var(--font-family);
+  color: var(--text-primary);
   font-size: 15px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: transparent;
+  background: var(--bg-gradient) no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #root {
