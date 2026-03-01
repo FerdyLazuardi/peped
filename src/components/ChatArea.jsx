@@ -31,20 +31,22 @@ export default function ChatArea({ isOpen, toggleSidebar }) {
         scrollToBottom();
     }, [messages, isTyping]);
 
-    // Keep input visible above keyboard on mobile (works with resizes-visual viewport)
+    // Push input above keyboard using CSS variable (resizes-visual approach)
     useEffect(() => {
         const viewport = window.visualViewport;
         if (!viewport) return;
 
-        const handleResize = () => {
-            // When keyboard appears, scroll so the input wrapper is above keyboard
-            if (inputWrapperRef.current) {
-                inputWrapperRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }
+        const updateKeyboardHeight = () => {
+            const keyboardHeight = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
+            document.documentElement.style.setProperty('--keyboard-height', `${keyboardHeight}px`);
         };
 
-        viewport.addEventListener('resize', handleResize);
-        return () => viewport.removeEventListener('resize', handleResize);
+        viewport.addEventListener('resize', updateKeyboardHeight);
+        viewport.addEventListener('scroll', updateKeyboardHeight);
+        return () => {
+            viewport.removeEventListener('resize', updateKeyboardHeight);
+            viewport.removeEventListener('scroll', updateKeyboardHeight);
+        };
     }, []);
 
     const handleInput = (e) => {
