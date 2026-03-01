@@ -941,7 +941,7 @@ textarea::placeholder {
   }
 
   .input-area-wrapper {
-    padding: 0 16px 12px 16px;
+    padding: 6px 16px 0px 16px;
     margin-bottom: 12px;
     margin-top: auto;
   }
@@ -958,20 +958,25 @@ textarea::placeholder {
     display: block;
   }
 
+  .welcome-title {
+    font-size: 18px;
+    padding: 0 12px;
+  }
+
   .welcome-input {
     margin-top: auto;
   }
 
   .mascot-area {
-    width: 280px;
-    height: 280px;
-    margin-bottom: -15px;
+    width: 340px;
+    height: 340px;
+    margin-bottom: -20px;
     margin-top: auto;
   }
 
   .mascot-img {
-    width: 240px;
-    height: 240px;
+    width: 300px;
+    height: 300px;
   }
 
   .chips-wrapper {
