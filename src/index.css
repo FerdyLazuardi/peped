@@ -1,7 +1,7 @@
 :root {
   /* Mesh Gradient Colors */
   --bg-gradient: linear-gradient(135deg, #FDFDFE 0%, #D8E5F8 45%, #C4B5E8 100%);
-  --keyboard-height: 0px;
+  --app-height: 100dvh;
 
   /* Glassmorphism Surfaces */
   --surface: rgba(255, 255, 255, 0.45);
@@ -353,7 +353,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: var(--app-height);
   position: relative;
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -961,10 +961,9 @@ textarea::placeholder {
   }
 
   .input-area-wrapper {
-    padding: 6px 16px calc(10px + var(--keyboard-height)) 16px;
+    padding: 6px 16px 10px 16px;
     margin-bottom: 0px;
     margin-top: auto;
-    transition: padding-bottom 0.2s ease;
   }
 
   .welcome-container {

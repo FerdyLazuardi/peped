@@ -31,22 +31,18 @@ export default function ChatArea({ isOpen, toggleSidebar }) {
         scrollToBottom();
     }, [messages, isTyping]);
 
-    // Push input above keyboard using CSS variable (resizes-visual approach)
+    // Shrink layout to visual viewport height when keyboard appears (no gap, no bounce)
     useEffect(() => {
         const viewport = window.visualViewport;
         if (!viewport) return;
 
-        const updateKeyboardHeight = () => {
-            const keyboardHeight = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
-            document.documentElement.style.setProperty('--keyboard-height', `${keyboardHeight}px`);
+        const onResize = () => {
+            document.documentElement.style.setProperty('--app-height', `${viewport.height}px`);
         };
 
-        viewport.addEventListener('resize', updateKeyboardHeight);
-        viewport.addEventListener('scroll', updateKeyboardHeight);
-        return () => {
-            viewport.removeEventListener('resize', updateKeyboardHeight);
-            viewport.removeEventListener('scroll', updateKeyboardHeight);
-        };
+        onResize(); // set initial value
+        viewport.addEventListener('resize', onResize);
+        return () => viewport.removeEventListener('resize', onResize);
     }, []);
 
     const handleInput = (e) => {
